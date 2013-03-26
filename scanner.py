@@ -11,10 +11,9 @@ import os
 class scanner:
 
     def __init__(self):
-        self.mainDir = '.'
         self.fileType = ['*.jpg', '*.jpeg', '*.png']
     
-    def scanDir():
+    def scanDir(self,mainDir):
         picList = []
         for root, dirs, filenames in os.walk(mainDir):
             for extension in fileType:
@@ -23,6 +22,7 @@ class scanner:
         return picList
 
 if __name__ == "__main__":
+    myscan=scanner()
     mainDir = '.'
     fileType = ['*.jpg', '*.jpeg', '*.png']
-        
+    myscan.scanDir(mainDir)
