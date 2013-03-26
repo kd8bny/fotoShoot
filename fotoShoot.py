@@ -2,18 +2,37 @@
 #Daryl W. Bennett --kd8bny@gmail.com
 #Prupose is to change photos in a slideshow fashion --TODO:Port to RPi
 
-#V1 R0
+#V1 R1
 
 import sys
+import os
+import sShow
 
-from PyQt4 import QtCore,QtGui
-from main import Ui_Form
+from PyQt4 import *
+from main import *
 
 class fotoShoot(QtGui.QMainWindow):
+
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        
+	    #Set signals
+        QtCore.QObject.connect(self.ui.dirButton, QtCore.SIGNAL("clicked()"), self.browse)	#browse button
+        QtCore.QObject.connect(self.ui.ssStart, QtCore.SIGNAL("clicked()"), self.start)	#start button
+        QtCore.QObject.connect(self.ui.picDir, QtCore.SIGNAL("copy()"), self.dir)
+        #QtCore.QObject.connect(self.ui.dirButton, QtCore.SIGNAL("clicked()"), self.browse)
+        
+    def dir(self):
+    	pass
+    	
+    def start(self):
+		pass
+		
+    def browse(self):
+    	mainDir = QtGui.QFileDialog.getExistingDirectory(self)
+	
 
 
 if __name__ == "__main__":
