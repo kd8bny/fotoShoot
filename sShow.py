@@ -26,7 +26,7 @@ class sShow:
             for index, pic in enumerate(self.picList):
                     picDis = self.getPic(pic);
                     picDis.show()
-                    time.sleep(self.git pause)
+                    time.sleep(self.pause)
                            
 if __name__ == "__main__":
     pause=3
