@@ -12,14 +12,14 @@ class scanner:
 
     def __init__(self):
         self.fileType = ['*.jpg', '*.jpeg', '*.png']
+        self.picList = []
     
     def scanDir(self,mainDir):
-        picList = []
         for root, dirs, filenames in os.walk(mainDir):
-            for extension in fileType:
+            for extension in self.fileType:
                     for filename in fnmatch.filter(filenames, extension):
-                            picList.append(os.path.join(root, filename))
-        return picList
+                            self.picList.append(os.path.join(root, filename))
+        return self.picList
 
 if __name__ == "__main__":
     myscan=scanner()

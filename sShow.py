@@ -13,25 +13,25 @@ import scanner
 
 class sShow:
     
-    def __init__(self):
+    def __init__(self,mainDir):
+        scan=scanner.scanner()
+        self.picList=scan.scanDir(mainDir)
         self.pause=3
-        fotoScan=scanner.scanner()
-        self.picList=fotoScan.scanDir()
         
     def getPic(self,pic):
             fImage = Image.open(pic)
             return fImage
         
-    def showTime(self):
-            for index, pic in enumerate(picList):
+    def showTime(self,pause):
+            for index, pic in enumerate(self.picList):
                     picDis = self.getPic(pic);
                     picDis.show()
-                    time.sleep(pause)
+                    time.sleep(self.git pause)
                            
 if __name__ == "__main__":
-    SShow=sShow()
+    pause=3
+    mainDir = '.'
+    SShow=sShow(mainDir)
 
     #Start slide show
-    SShow.showTime(picList)
-        
-    
+    SShow.showTime(pause)
