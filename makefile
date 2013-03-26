@@ -15,5 +15,6 @@ run:
 # Rebuilds the interface
 build:
 	@ echo "*** Utilizing pyuic4"
-	@ pyuic4 -xd -o fotoShootWidget.py main.ui
+	@ rm main.py
+	@ pyuic4 -xd -o main.py main.ui
 	@ echo "*** Build Success"

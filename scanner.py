@@ -8,7 +8,11 @@ import fnmatch
 import string
 import os
 
-class scanner(mainDir):
+class scanner:
+
+    def __init__(self):
+        self.mainDir = '.'
+        self.fileType = ['*.jpg', '*.jpeg', '*.png']
     
     def scanDir():
         picList = []
@@ -18,6 +22,7 @@ class scanner(mainDir):
                             picList.append(os.path.join(root, filename))
         return picList
 
-    if __name__ == "__main__":
-        picList = scanDir()
+if __name__ == "__main__":
+    mainDir = '.'
+    fileType = ['*.jpg', '*.jpeg', '*.png']
         

@@ -24,7 +24,7 @@ class sShow:
         
     def showTime(self):
             for index, pic in enumerate(picList):
-                    picDis = getPic(pic);
+                    picDis = self.getPic(pic);
                     picDis.show()
                     time.sleep(pause)
                            

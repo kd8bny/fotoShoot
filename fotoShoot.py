@@ -4,41 +4,20 @@
 
 #V1 R0
 
-#TODO:Close images!
+import sys
 
-import os
-import time
-import Image
-import fnmatch
-import string
+from PyQt4 import QtCore,QtGui
+from main import Ui_Form
 
-def scanDir():
-        picList = []
-        for root, dirs, filenames in os.walk(mainDir):
-                for extension in fileType:
-                        for filename in fnmatch.filter(filenames, extension):
-                                picList.append(os.path.join(root, filename))
-        return picList
+class fotoShoot(QtGui.QMainWindow):
+    def __init__(self, parent=None):
+        QtGui.QWidget.__init__(self, parent)
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
 
 
-def getPic():
-        pic = Image.open("./test.jpg")
-        return pic
-        
-def showTime():
-        for index, pic in enumerate(picList):
-                picDis = getPic();
-                picDis.show()
-                time.sleep(pause)
-                    
-        
 if __name__ == "__main__":
-        mainDir = '.'
-        fileType = ['*.jpg', '*.jpeg', '*.png']
-        pause = 3 #in secs
-
-        picList = scanDir()
-        
-        #Start slide show
-        showTime()
-        getPic()
+    app = QtGui.QApplication(sys.argv)
+    myapp = MyForm()
+    myapp.show()
+    sys.exit(app.exec_())
