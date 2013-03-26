@@ -21,10 +21,10 @@ class fotoShoot(QtGui.QMainWindow):
 	    #Set signals
         QtCore.QObject.connect(self.ui.dirButton, QtCore.SIGNAL("clicked()"), self.browse)	#browse button
         QtCore.QObject.connect(self.ui.ssStart, QtCore.SIGNAL("clicked()"), self.start)	#start button
-        QtCore.QObject.connect(self.ui.picDir, QtCore.SIGNAL("copy()"), self.dir)
+        QtCore.QObject.connect(self.ui.picDir, QtCore.SIGNAL("copy()"), self.Dir)
         #QtCore.QObject.connect(self.ui.dirButton, QtCore.SIGNAL("clicked()"), self.browse)
         
-    def dir(self):
+    def Dir(self):
     	pass
     	
     def start(self):
@@ -32,6 +32,7 @@ class fotoShoot(QtGui.QMainWindow):
 		
     def browse(self):
     	mainDir = QtGui.QFileDialog.getExistingDirectory(self)
+    	self.ui.picDir.setText(mainDir)
 	
 
 
