@@ -21,8 +21,7 @@ class fotoShoot(QtGui.QMainWindow):
         self.mainDir = 0
         self.pause = self.ui.spinBox.value()
         
-        #Slide Show
-        self.play = sShow.sShow()
+        
         
 	    #Set signals
         QtCore.QObject.connect(self.ui.dirButton, QtCore.SIGNAL("clicked()"), self.browse)	#browse button
@@ -36,14 +35,13 @@ class fotoShoot(QtGui.QMainWindow):
 		if(self.mainDir==0):    #TODO Error Box
 			pass
 		else:
-		    self.play.showTime(self.mainDir,self.pause)
-		
+			self.play = sShow.sShow(self.mainDir,self.pause)
+			self.play.showTime()
+
     def browse(self):
-    	self.mainDir = QtGui.QFileDialog.getExistingDirectory(self)
+    	self.mainDir = str(QtGui.QFileDialog.getExistingDirectory(self))
     	self.ui.picDir.setText(self.mainDir)
     	
-	
-
 
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
