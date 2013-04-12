@@ -2,7 +2,7 @@
 #Daryl W. Bennett --kd8bny@gmail.com
 #Purpose is to show picyures from fotoShoot
 
-#V1 R1
+#V1 R2
 
 #TODO:Close images!
 
@@ -10,28 +10,35 @@ import os
 import time
 import Image
 import scanner
+import frame
 
 class sShow:
     
-    def __init__(self,mainDir):
+    def __init__(self):
+        self.mainDir= '/'
         scan=scanner.scanner()
         self.picList=scan.scanDir(mainDir)
-        self.pause=3
+        self.pause=pause
+        pass
         
-    def getPic(self,pic):
-            fImage = Image.open(pic)
-            return fImage
+    def getPic(self, pic):
+		fImage = Image.open(pic)
+		return fImage
         
-    def showTime(self,pause):
-            for index, pic in enumerate(self.picList):
-                    picDis = self.getPic(pic);
-                    picDis.show()
-                    time.sleep(self.pause)
+    def showTime(self):
+    
+        scan=scanner.scanner()
+        picList=scan.scanDir(self.mainDir)
+            
+        for index, pic in enumerate(picList):
+            picDis = self.getPic(pic);
+            picDis.show()
+            time.sleep(pause)
                            
 if __name__ == "__main__":
     pause=3
     mainDir = '.'
-    SShow=sShow(mainDir)
+    SShow = sShow()
 
     #Start slide show
-    SShow.showTime(pause)
+    SShow.showTime()

@@ -18,20 +18,29 @@ class fotoShoot(QtGui.QMainWindow):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
         
+        self.mainDir = 0
+        self.pause = self.ui.spinBox.value()
+        
+        #Slide Show
+        self.play = sShow.sShow()
+        
 	    #Set signals
         QtCore.QObject.connect(self.ui.dirButton, QtCore.SIGNAL("clicked()"), self.browse)	#browse button
         QtCore.QObject.connect(self.ui.ssStart, QtCore.SIGNAL("clicked()"), self.start)	#start button
         QtCore.QObject.connect(self.ui.spinBox, QtCore.SIGNAL("valueChanged(int)"), self.pauseDur)
         
     def pauseDur(self):
-    	pause=self.ui.spinBox.value()
+    	self.pause=self.ui.spinBox.value()
     	
     def start(self):
-		pass
+		if(self.mainDir==0):    #TODO Error Box
+			pass
+		else:
+		    self.play.showTime(self.mainDir,self.pause)
 		
     def browse(self):
-    	mainDir = QtGui.QFileDialog.getExistingDirectory(self)
-    	self.ui.picDir.setText(mainDir)
+    	self.mainDir = QtGui.QFileDialog.getExistingDirectory(self)
+    	self.ui.picDir.setText(self.mainDir)
     	
 	
 
