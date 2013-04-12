@@ -1,12 +1,12 @@
 #Makefile: fotoShoot
-#V1 R0
+#V1 R1
      
 # Cleans your directory
 clean:
-	@ echo "*** Removing all temp files"
+	@ echo "*** Removing all temp files ***"
 	@ rm -f *.pyc
 	@ rm -f *~
-	@ echo "*** Complete"
+	@ echo "*** Complete ***"
 
 # Runs the code
 run:
@@ -14,14 +14,23 @@ run:
 
 # Build UI for first time !!! USE MAKE BUILD after!!!
 initbuild:
+	#Build main UI
 	@ echo "***Initial build__Utilizing pyuic4***"
-	@ puic4 main.py
+	@ pyuic4 main.py
+	
+	#Build slide show UI
+	@ pyuic4 frame.py
 	@ echo "Build Success"
 	@ echo "!!!!!USE MAKE BUILD for future builds!!!!!!"
 
 # Rebuilds the interface
 build:
-	@ echo "*** Utilizing pyuic4"
+	#Build main UI
+	@ echo "*** Utilizing pyuic4 ***"
 	@ rm main.py
 	@ pyuic4 -xd -o main.py main.ui
-	@ echo "*** Build Success"
+	
+	#Build slide show UI
+	@ rm frame.py
+	@ pyuic4 -xd -o frame.py frame.ui
+	@ echo "*** Build Success ***"
