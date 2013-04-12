@@ -12,6 +12,13 @@ clean:
 run:
 	python2.7 fotoShoot.py
 
+# Build UI for first time !!! USE MAKE BUILD after!!!
+initbuild:
+	@ echo "***Initial build__Utilizing pyuic4***"
+	@ puic4 main.py
+	@ echo "Build Success"
+	@ echo "!!!!!USE MAKE BUILD for future builds!!!!!!"
+
 # Rebuilds the interface
 build:
 	@ echo "*** Utilizing pyuic4"
