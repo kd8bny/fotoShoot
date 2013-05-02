@@ -16,10 +16,10 @@ run:
 initbuild:
 	#Build main UI
 	@ echo "***Initial build__Utilizing pyuic4***"
-	@ pyuic4 main.py
+	@ pyuic4 -xd -o main.py main.ui
 	
 	#Build slide show UI
-	@ pyuic4 frame.py
+	@ pyuic4 -xd -o frame.py frame.ui
 	@ echo "Build Success"
 	@ echo "!!!!!USE MAKE BUILD for future builds!!!!!!"
 
